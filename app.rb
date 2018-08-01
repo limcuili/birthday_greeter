@@ -2,21 +2,24 @@ require 'sinatra'
 require 'sinatra/base'
 
 class Greeter < Sinatra::Base
+  enable :sessions
 
   get '/' do
     erb(:index)
   end
-  #
-  # post
-  #
-  # redirect
-  #
+
+  post '/user' do
+    session[:name] = params[:name]
+    session[:birth_day] = params[:birth_day]
+    session[:birth_month] = params[:birth_month]
+    redirect ('/greeting')
+  end
 
   get '/greeting' do
     p params
-    @name = params[:name]
-    @birth_day = params[:birth_day]
-    @birth_month = params[:birth_month]
+    @name = session[:name]
+    @birth_day = session[:birth_day]
+    @birth_month = session[:birth_month]
     erb(:greeting)
   end
 

@@ -4,4 +4,5 @@
   '11' => 'November', '12' => 'December' } %>
 
 Hello, <%= @name %>! </br>
-Your birthday is <%= @birth_day %> <%= MONTH_HASH[@birth_month] %>.
+Your birthday is <%= @birth_day %> <%= MONTH_HASH[@birth_month] %>.</br>
+<%= @message.greet %>

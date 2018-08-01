@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/base'
+require_relative './models/greeter.rb'
 
 class App < Sinatra::Base
   enable :sessions
@@ -16,10 +17,10 @@ class App < Sinatra::Base
   end
 
   get '/greeting' do
-    p params
     @name = session[:name]
     @birth_day = session[:birth_day]
     @birth_month = session[:birth_month]
+    @message = Greeter.new(Date.new(2018,@birth_month.to_i,@birth_day.to_i))
     erb(:greeting)
   end
 

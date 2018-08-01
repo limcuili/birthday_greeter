@@ -2,13 +2,13 @@ require 'date'
 
 class Calendar
 
-  def initialize(date)
-    @date = date
+  def initialize(birthday_date)
+    @birthday_date = birthday_date
   end
 
   def days_left
     # modulos work for negatives
-    return (Date.today - @date).to_i % 365
+    return (((@birthday_date - Date.today).to_i) % 365)
   end
 
 end

@@ -1,7 +1,8 @@
 feature 'prints the correct birthday message' do
-   before do
-     allow(Date).to receive(:today).and_return(Date.new(2018,8,1))
-   end
+
+  before do
+    allow(Date).to receive(:today).and_return(Date.new(2018,8,1))
+  end
 
   scenario 'it is your birthday today' do
     visit '/'
@@ -33,7 +34,7 @@ feature 'prints the correct birthday message' do
   scenario 'there are 345 days to your birthday' do
     visit '/'
     fill_in :name, with: 'Tristan'
-    select("11", from: "birth_day").select_option
+    select("12", from: "birth_day").select_option
     select("July", from: "birth_month").select_option
     click_button 'Submit'
     expect(page).to have_content 'There are 345 days to your birthday.'

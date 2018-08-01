@@ -9,7 +9,7 @@ class Greeter
   def greet
     if @date == Date.today
       'Happy Birthday!'
-    elsif (@date - Date.today) % 365 == 1
+    elsif (@date - Date.today).to_i == 1
       "Your birthday is tomorrow!"
     else
       "There are #{Calendar.new(@date).days_left} days to your birthday."

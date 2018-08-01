@@ -1,4 +1,7 @@
-xfeature 'prints the correct birthday message' do
+feature 'prints the correct birthday message' do
+   before do
+     allow(Date).to receive(:today).and_return(Date.new(2018,8,1))
+   end
 
   scenario 'it is your birthday today' do
     visit '/'

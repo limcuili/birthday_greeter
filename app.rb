@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/base'
 
-class Greeter < Sinatra::Base
+class App < Sinatra::Base
   enable :sessions
 
   get '/' do

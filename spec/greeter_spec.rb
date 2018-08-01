@@ -9,4 +9,14 @@ describe Greeter do
     expect(greeter.greet).to eq 'Happy Birthday!'
   end
 
+  it 'tells you that tomorrow is your birthday' do
+    allow(Date).to receive(:today).and_return(Date.new(2018,7,31))
+    expect(greeter.greet).to eq 'Your birthday is tomorrow!'
+  end
+
+  it 'tells you that your birthday is 20 days away' do
+    allow(Date).to receive(:today).and_return(Date.new(2018,8,21))
+    expect(greeter.greet).to eq 'There are 20 days to your birthday.'
+  end
+
 end

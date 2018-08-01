@@ -8,4 +8,8 @@ describe Calendar do
     expect(calendar.days_left).to eq 1
   end
 
+  it 'calculates that it is 300 day to your birthday' do
+    allow(Date).to receive(:today).and_return(Date.new(2018,7,30))
+    expect(calendar.days_left).to eq 364
+  end
 end

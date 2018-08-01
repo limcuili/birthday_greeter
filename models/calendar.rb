@@ -7,10 +7,8 @@ class Calendar
   end
 
   def days_left
-    return (Date.today - @date).to_i
+    # modulos work for negatives
+    return (Date.today - @date).to_i % 365
   end
-=begin
-here we will count the @days_left until a birthday
-or it will determine that today is the birthday
-=end
+
 end

@@ -21,7 +21,7 @@ class App < Sinatra::Base
     @name = session[:name]
     @birth_day = session[:birth_day]
     @birth_month = session[:birth_month]
-    @message = Greeter.new(Date.new(2018,@birth_month.to_i,@birth_day.to_i)).greet
+    @message = Greeter.new(Date.new(Date.today.year,@birth_month.to_i,@birth_day.to_i)).greet
     erb(:greeting)
   end
 
